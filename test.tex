@@ -1,0 +1,67 @@
+\documentclass[./body]{subfiles}
+\begin{document}
+
+\section{独自定義の環境}
+
+\subsection{\texttt{hmq}環境（演習問題用）}
+
+\begin{hmq}\label{vec:scq}
+以下のものをベクトル量とスカラー量に分類せよ。
+
+\noindent
+\phantom{.}\hfill{速度}\hfill{時間}\hfill{体積}
+\hfill{動画の再生数}\hfill{密度}\hfill\phantom{.}
+\end{hmq}
+
+\subsection{\texttt{hmans}コマンド（演習問題の解答用）}
+
+\hmans{vec:scq}
+\textsf{ベクトル量}: 速度、\textsf{スカラー量}: 時間、体積、動画の再生数、密度
+
+\subsection{\texttt{hmbox}環境（定理など）}
+
+\begin{hmbox}{差を求める式}
+\[\text{対象}-\text{基準}=\text{差}\label{vec:diff2}\]
+\end{hmbox}
+
+\subsection{\texttt{hmcomp}環境（補足など）}
+
+\begin{hmcomp}{接線の傾き}
+$\Delta t$を限りなく$0$に近づけることは、接線の傾きを求めることにも対応しています。
+\end{hmcomp}
+
+\subsection{\texttt{hmemph}コマンド（強調）}
+
+\hmemph{瞬間の速さは接線の傾きに対応しています}。
+
+\subsection{\texttt{途中} コマンド}
+
+\途中
+
+\subsection{数式の例}
+
+\verb+\hmVEC+ で、始点終点を記したベクトルを表現（\verb+\protect+ 付き）。
+
+\[\hmVEC{OX}\]
+
+\verb+\hmvec+ でベクトルを表現（太字）。
+
+\begin{align*}
+&\lim_{\Delta t\to0}\left[\frac{A[\hmvec{x}[t+\Delta t],t+\Delta t]-A[\hmvec{x}[t],t]}{\Delta t}\right]\\
+=&\sum_i \frac{\partial A}{\partial x_i}\frac{\partial x_i}{\partial t}+\frac{\partial A}{\partial t}\\
+=&\left(\frac{\partial}{\partial t}+\hmvec{u}\cdot\nabla\right)A=\frac{DA}{Dt}
+\end{align*}
+
+
+\section{留意事項}
+
+\begin{itemize}
+\item \texttt{subfiles}\footnote{\url{https://qiita.com/sankichi92/items/1e113fcf6cc045eb64f7}}
+	を使っています。部ごとにディレクトリを分けて、章ごとにファイルを分ける方針で。
+\item fonts フォルダのフォントをインストールしてください。
+\item 和文の太字が効かないので、どうにかして対処する。
+\item タイプライタ体（beramono）の太字も効いていない。
+	（そもそも TU/fvm/b/n が存在しないので、TU/fvm/m/n で代用するように設定する）
+\end{itemize}
+
+\end{document}

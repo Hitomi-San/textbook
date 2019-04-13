@@ -1,0 +1,110 @@
+% LuaLaTeX 文書
+\documentclass[book]{jlreq}
+
+\usepackage{subfiles}
+
+\usepackage{luatexja}
+\ltjsetparameter{jacharrange={-2}}%ギリシア文字、キリル文字を AL Char に。
+\usepackage[no-math,match,deluxe,sourcehan,fontspec,jfm_yoko=jlreq,jfm_tate=jlreqv]{luatexja-preset}
+
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{luatexja-otf,luatexja-adjust}
+
+\renewcommand{\thefootnote}{\textsuperscript\textasteriskcentered\arabic{footnote}}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc,angles,quotes,shapes.symbols}
+\tikzset{hmvector/.style={-latex,very thick}}
+\tikzset{hmsubvector/.style={-latex,thin}}
+\tikzset{hmaxis/.style={-latex,very thick}}
+\tikzset{hmdash/.style={thin,dashed}}
+
+\usepackage[hidelinks,unicode=true]{hyperref}
+\setcounter{tocdepth}{1}
+\usepackage{url}
+\usepackage{caption}
+
+\usepackage{pxrubrica}
+\usepackage{indentfirst}
+\usepackage{scalefnt}
+\usepackage{wrapfig}
+
+\usepackage{yhmath,amssymb,mathtools,mathrsfs,mathbbol}
+
+\usepackage[math]{iwona}
+\usepackage[euler-digits]{eulervm}
+\usepackage{classico,newpxtext,yhmath,beramono}
+\DeclareMathAlphabet{\mathtt}{T1}{fvm}{m}{n}
+\DeclareMathAlphabet{\mathsf}{T1}{uop}{m}{n}
+
+\allowdisplaybreaks[4]
+\ltjenableadjust[lineend=extended,priority=true,profile=true,linestep=true]
+
+%%%% コマンド %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\hmemph}[1]{\textsf{\textbf{#1}}}
+
+\newcommand{\hmvec}{\mathbold}
+
+\newcommand{\hmVEC}[1]{\protect\overrightarrow{#1}}
+
+%%%% 箱 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{hmq}{練習問題}[section]
+
+\newcommand{\hmans}[1]{%
+	\noindent
+	\tikz[baseline=(T.base)]
+	\node[inner sep=0pt,outer sep=0pt,signal,color=white,fill=black]
+	(T){\textbf{\textsf{回答\ref{#1}}}};
+}
+\newtcolorbox{hmbox}[1]{
+	enhanced, sharp corners, drop fuzzy shadow,
+	title={\textbf{\textsf{#1}}},
+}
+\newtcolorbox{hmcomp}[1]{
+	enhanced, boxrule=0.5mm, breakable,
+	title={\textsf{#1}},
+	attach boxed title to top left={xshift=0mm, yshift*=-0.5mm},
+	boxed title style={sharp corners, colback=lightgray},
+	sharp corners, coltitle=black,
+	fontupper=\sffamily #1\small,
+	colback=white,
+}
+\newcommand{\途中}[1]{
+	\begin{tcolorbox}[%
+		enhanced, sharp corners, frame hidden,%
+		borderline={1pt}{0mm}{dotted},%
+	]%
+	\noindent\phantom{0}\hfill 執筆途中\hfill\phantom{0}\par
+	#1
+	\end{tcolorbox}\par
+}
+
+
+\title{タイトル}
+\author{ひとみさん\and きよたまさや}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\maketitle
+
+\subfile{test}
+
+\tableofcontents
+
+\appendix
+
+\part{問題の答え}
+
+
+\end{document}
